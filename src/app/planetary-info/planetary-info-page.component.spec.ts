@@ -33,7 +33,7 @@ describe('PlanetaryInfoPageComponent', () => {
     });
 
     it('displays a table with planetary data', () => {
-      const headerElements = fixture.debugElement.queryAll(By.css('th'));
+      const headerElements = fixture.debugElement.queryAll(By.css('th.mc-table-cell'));
       expect(headerElements.length).toBe(6);
 
       const expectedHeaders = ['Name', 'Climate', '# of Residents', 'Terrain(s)', 'Population', 'Surface Area Cover By Water (sq. km)'];

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Planet, StarWarsService } from '../core/starwars.service';
 
+// TODO: consider changeDetection: OnPush
 @Component({
   selector: 'planetary-info-page',
   templateUrl: './planetary-info-page.component.html',
@@ -17,7 +18,7 @@ export class PlanetaryInfoPageComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     try {
       const planetsResponse = await this.starWarsService.getPlanets();
-      this.planets = planetsResponse.results;
+      this.planets = planetsResponse.results.sort(this.sortAlphabeticallyByName);
     } catch {
       this.displayError = true;
     } finally {
@@ -25,4 +26,15 @@ export class PlanetaryInfoPageComponent implements OnInit {
     }
   }
 
+  private sortAlphabeticallyByName = (first: Planet, second: Planet): number => {
+    if (first.name > second.name) {
+      return 1;
+    }
+    
+    if (first.name < second.name) {
+      return -1;
+    }
+
+    return 0;
+  }
 }

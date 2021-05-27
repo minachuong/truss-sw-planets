@@ -1,27 +1,30 @@
 <div *ngIf="isLoading && !displayError" id="loading">Retrieving planetary information...</div>
 <div *ngIf="planets && !isLoading && !displayError; else errorMessage">
-  <table>
+  <table class="tw-table">
     <tr>
-      <th>Name</th>
-      <th>Climate</th>
-      <th># of Residents</th>
-      <th>Terrain(s)</th>
-      <th>Population</th>
-      <th>Surface Area Cover By Water (sq. km)</th>
+      <th class="tw-table__cell">Name</th>
+      <th class="tw-table__cell">Climate</th>
+      <th class="tw-table__cell"># of Residents</th>
+      <th class="tw-table__cell">Terrain(s)</th>
+      <th class="tw-table__cell">Population</th>
+      <th class="tw-table__cell">Surface Area Cover By Water (sq. km)</th>
     </tr>
     <ng-container *ngFor="let planet of planets">
       <tr>
-        <td>{{planet.name}}</td>
-        <td>{{planet.climate}}</td>
+        <td class="tw-table__cell">
+          <a [href]="planet.url" target="_blank">{{planet.name | unknown}}</a>
+        </td>
+        <td class="tw-table__cell">{{planet.climate | unknown}}</td>
         <!-- TODO: check for null pointer on residents -->
-        <td>{{planet.residents.length}}</td> 
-        <td>{{planet.terrain}}</td>
-        <td>{{planet.population}}</td>
-        <td>{{planet.surface_water}}</td>
+        <td class="tw-table__cell">{{planet.residents.length.toString() | thousands | unknown}}</td> 
+        <td class="tw-table__cell">{{planet.terrain | unknown}}</td>
+        <td class="tw-table__cell">{{planet.population | thousands | unknown}}</td>
+        <!-- BUG: 'unknown' gets displayed as NaN :(  -->
+        <td class="tw-table__cell">{{planet.surface_water | surfaceWater: planet.diameter | thousands | unknown}}</td>
       </tr>
     </ng-container>
   </table>
 </div>
 <ng-template #errorMessage> 
-  <div id="errorMessage">Moff Gideon has intercepted your request!</div>
+  <div *ngIf="!isLoading" id="errorMessage">Moff Gideon has intercepted your request!</div>
 </ng-template>

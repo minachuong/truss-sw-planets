@@ -1,0 +1,10 @@
+$cell-border: 1px solid grey;
+
+.tw-table {
+  border-collapse: collapse;
+
+  &__cell {
+    border: $cell-border;
+    padding: .4rem;
+  }
+}

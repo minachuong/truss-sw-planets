@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PlanetaryInfoPageComponent } from './planetary-info-page.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from '../core/core.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -13,7 +14,8 @@ import { CoreModule } from '../core/core.module';
   imports: [
     BrowserModule,
     CoreModule,
-    CommonModule
+    CommonModule,
+    SharedModule
   ]
 })
 export class PlanetaryInfoModule { }
