@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PlanetaryInfoPageComponent } from './planetary-info-page/planetary-info-page.component';
+import { PlanetaryInfoPageComponent } from './planetary-info-page.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -9,6 +11,8 @@ import { PlanetaryInfoPageComponent } from './planetary-info-page/planetary-info
     PlanetaryInfoPageComponent
   ],
   imports: [
+    BrowserModule,
+    CoreModule,
     CommonModule
   ]
 })
