@@ -4,7 +4,7 @@ Candidate Submission By Mina Chuong
 
 This is my technical sample for the problem indicated [here](https://github.com/trussworks/truss-interview/blob/main/BROWSER_README.md).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1 and we'll be using Angular CLI to serve and build the app. Angular CLI requires a minimum [Node.js](https://nodejs.org/) version of either v12.14 or v14.15.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1 and we'll be using Angular CLI to serve and build the app. Angular CLI requires a minimum [Node.js](https://nodejs.org/) version of either v12.14 or v14.15. It is also indicated as a devDependency in `package.json`.
 
 After cloning [this repository](https://github.com/minachuong/truss-sw-planets) locally, run `npm install` to acquire all dependencies needed for this project.
 
